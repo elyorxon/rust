@@ -25,7 +25,10 @@ fn main () {
         match guess.cmp(&secret_number) {
             Ordering::Less => println!("Kichikroq son o'yladiz!"),
             Ordering::Greater => println!("Kattaroq son o'yladiz!"),
-            Ordering::Equal => println!("Tabriklaymiz. To'g'ri raqamni topdingiz!"),
-           }
+            Ordering::Equal => { 
+                println!("Tabriklaymiz. To'g'ri raqamni topdingiz!");
+                break;
+            }
+        }    
     }
 }
