@@ -17,6 +17,8 @@ fn main (){
         .read_line(&mut guess)
         .expect("Qatorni o'qishda xatolik.");
 
+    let guess: u32 = guess.trim().parse().expect("Iltimos, son kiriting.");
+
     println!("Siz taxmin qilgan son: {guess}.");
 
     match guess.cmp(&secret_number) {
