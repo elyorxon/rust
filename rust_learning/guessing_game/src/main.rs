@@ -1,6 +1,6 @@
 use std::io;
 use rand::Rng;
-
+use std::cmp::Ordering;
 
 fn main (){
     println!("Raqamni taxmin qiling!");
@@ -18,4 +18,10 @@ fn main (){
         .expect("Qatorni o'qishda xatolik.");
 
     println!("Siz taxmin qilgan son: {guess}.");
+
+    match guess.cmp(&secret_number) {
+        Ordering::Less => println!("Kichikroq son o'yladiz!"),
+        Ordering::Greater => println!("Kattaroq son o'yladiz!"),
+        Ordering::Equal => println!("Tabriklaymiz. To'g'ri raqamni todingiz!"),
+    }
 }
