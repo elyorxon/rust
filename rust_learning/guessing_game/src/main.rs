@@ -18,8 +18,11 @@ fn main () {
             .read_line(&mut guess)
             .expect("Qatorni o'qishda xatolik.");
 
-        let guess: u32 = guess.trim().parse().expect("Iltimos, son kiriting.");
-
+        let guess: u32 = match guess.trim().parse() {
+            Ok(num) => num,
+            Err(_) => continue,
+        };
+    
         println!("Siz taxmin qilgan son: {guess}.");
 
         match guess.cmp(&secret_number) {
